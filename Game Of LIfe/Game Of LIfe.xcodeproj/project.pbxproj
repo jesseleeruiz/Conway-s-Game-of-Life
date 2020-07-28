@@ -15,6 +15,7 @@
 		809F426E24D0CABF00C21960 /* Game_Of_LIfeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809F426D24D0CABF00C21960 /* Game_Of_LIfeTests.swift */; };
 		809F427924D0CAC000C21960 /* Game_Of_LIfeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809F427824D0CAC000C21960 /* Game_Of_LIfeUITests.swift */; };
 		809F428724D0D19600C21960 /* CellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809F428624D0D19600C21960 /* CellModel.swift */; };
+		809F428924D0D23100C21960 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809F428824D0D23100C21960 /* GameState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		809F427824D0CAC000C21960 /* Game_Of_LIfeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game_Of_LIfeUITests.swift; sourceTree = "<group>"; };
 		809F427A24D0CAC000C21960 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		809F428624D0D19600C21960 /* CellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellModel.swift; sourceTree = "<group>"; };
+		809F428824D0D23100C21960 /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				809F426124D0CABE00C21960 /* LaunchScreen.storyboard */,
 				809F426424D0CABE00C21960 /* Info.plist */,
 				809F428624D0D19600C21960 /* CellModel.swift */,
+				809F428824D0D23100C21960 /* GameState.swift */,
 			);
 			path = "Game Of LIfe";
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				809F425724D0CAB800C21960 /* AppDelegate.swift in Sources */,
+				809F428924D0D23100C21960 /* GameState.swift in Sources */,
 				809F425924D0CAB800C21960 /* SceneDelegate.swift in Sources */,
 				809F428724D0D19600C21960 /* CellModel.swift in Sources */,
 			);
