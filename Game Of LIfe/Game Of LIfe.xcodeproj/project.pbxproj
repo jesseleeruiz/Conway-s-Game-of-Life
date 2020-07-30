@@ -16,6 +16,11 @@
 		809F427924D0CAC000C21960 /* Game_Of_LIfeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809F427824D0CAC000C21960 /* Game_Of_LIfeUITests.swift */; };
 		809F428724D0D19600C21960 /* CellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809F428624D0D19600C21960 /* CellModel.swift */; };
 		809F428924D0D23100C21960 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809F428824D0D23100C21960 /* GameState.swift */; };
+		80BDF68624D2090000B38390 /* StyleGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BDF68524D2090000B38390 /* StyleGuide.swift */; };
+		80BDF68824D2105900B38390 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BDF68724D2105900B38390 /* Game.swift */; };
+		80BDF68A24D23C8A00B38390 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BDF68924D23C8A00B38390 /* GameViewController.swift */; };
+		80BDF68C24D23CA600B38390 /* SquareCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BDF68B24D23CA600B38390 /* SquareCollectionViewCell.swift */; };
+		80BDF68E24D2409900B38390 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BDF68D24D2409900B38390 /* AboutViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +56,11 @@
 		809F427A24D0CAC000C21960 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		809F428624D0D19600C21960 /* CellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellModel.swift; sourceTree = "<group>"; };
 		809F428824D0D23100C21960 /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
+		80BDF68524D2090000B38390 /* StyleGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleGuide.swift; sourceTree = "<group>"; };
+		80BDF68724D2105900B38390 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		80BDF68924D23C8A00B38390 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		80BDF68B24D23CA600B38390 /* SquareCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareCollectionViewCell.swift; sourceTree = "<group>"; };
+		80BDF68D24D2409900B38390 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,8 +117,13 @@
 				809F425F24D0CABE00C21960 /* Assets.xcassets */,
 				809F426124D0CABE00C21960 /* LaunchScreen.storyboard */,
 				809F426424D0CABE00C21960 /* Info.plist */,
+				80BDF68724D2105900B38390 /* Game.swift */,
 				809F428624D0D19600C21960 /* CellModel.swift */,
 				809F428824D0D23100C21960 /* GameState.swift */,
+				80BDF68524D2090000B38390 /* StyleGuide.swift */,
+				80BDF68924D23C8A00B38390 /* GameViewController.swift */,
+				80BDF68B24D23CA600B38390 /* SquareCollectionViewCell.swift */,
+				80BDF68D24D2409900B38390 /* AboutViewController.swift */,
 			);
 			path = "Game Of LIfe";
 			sourceTree = "<group>";
@@ -264,6 +279,11 @@
 			files = (
 				809F425724D0CAB800C21960 /* AppDelegate.swift in Sources */,
 				809F428924D0D23100C21960 /* GameState.swift in Sources */,
+				80BDF68824D2105900B38390 /* Game.swift in Sources */,
+				80BDF68E24D2409900B38390 /* AboutViewController.swift in Sources */,
+				80BDF68C24D23CA600B38390 /* SquareCollectionViewCell.swift in Sources */,
+				80BDF68624D2090000B38390 /* StyleGuide.swift in Sources */,
+				80BDF68A24D23C8A00B38390 /* GameViewController.swift in Sources */,
 				809F425924D0CAB800C21960 /* SceneDelegate.swift in Sources */,
 				809F428724D0D19600C21960 /* CellModel.swift in Sources */,
 			);
