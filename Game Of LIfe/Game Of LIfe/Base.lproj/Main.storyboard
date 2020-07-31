@@ -19,12 +19,13 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PJd-gl-Vr9">
                                 <rect key="frame" x="0.0" y="813" width="414" height="49"/>
                                 <items>
-                                    <barButtonItem largeContentSizeImage="backward.fill" catalog="system" systemItem="rewind" id="rb9-Jl-X26">
+                                    <barButtonItem title="Clear" id="rb9-Jl-X26">
                                         <color key="tintColor" red="0.73725490199999999" green="0.50196078430000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
-                                            <action selector="rewind:" destination="bIA-dd-gK9" id="OkP-Ih-CFr"/>
+                                            <action selector="clear:" destination="bIA-dd-gK9" id="sqj-19-DgE"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="YII-DT-xoR"/>
                                     <barButtonItem largeContentSizeImage="play.fill" catalog="system" systemItem="play" id="rRJ-UB-QtL">
                                         <color key="tintColor" red="0.73725490199999999" green="0.50196078430000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
@@ -37,21 +38,8 @@
                                             <action selector="pause:" destination="bIA-dd-gK9" id="ggB-5i-vkx"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem largeContentSizeImage="forward.fill" catalog="system" systemItem="fastForward" id="qNx-su-AfC">
-                                        <color key="tintColor" red="0.73725490199999999" green="0.50196078430000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="fastForward:" destination="bIA-dd-gK9" id="qgG-Pb-6Bs"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="YII-DT-xoR"/>
-                                    <barButtonItem title="Advance A Step" id="rR2-HA-uvo">
-                                        <color key="tintColor" red="0.73725490199999999" green="0.50196078430000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="advance:" destination="bIA-dd-gK9" id="OgV-m1-bhO"/>
-                                        </connections>
-                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="zUp-99-x4k"/>
-                                    <barButtonItem title="Reset" id="k3P-48-Mxg">
+                                    <barButtonItem title="Random" id="k3P-48-Mxg">
                                         <color key="tintColor" red="0.73725490199999999" green="0.50196078430000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="reset:" destination="bIA-dd-gK9" id="FoI-Gs-1js"/>
@@ -60,7 +48,7 @@
                                 </items>
                                 <color key="barTintColor" red="0.1333333333" green="0.15686274510000001" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Generation #" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cEj-Io-JGV">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Generation 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cEj-Io-JGV">
                                 <rect key="frame" x="20" y="140" width="374" height="27"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                 <color key="textColor" red="0.73725490196078436" green="0.50196078431372548" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -96,6 +84,18 @@
                                     <outlet property="delegate" destination="bIA-dd-gK9" id="w6V-8g-8hr"/>
                                 </connections>
                             </collectionView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="VIz-Vf-yo8">
+                                <rect key="frame" x="20" y="683" width="374" height="32"/>
+                                <segments>
+                                    <segment title="Small Grid"/>
+                                    <segment title="Medium Grid"/>
+                                    <segment title="Large Grid"/>
+                                </segments>
+                                <color key="selectedSegmentTintColor" red="0.58039215690000001" green="0.6705882353" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="gridSize:" destination="bIA-dd-gK9" eventType="valueChanged" id="EVF-ON-OgZ"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="0.13333333333333333" green="0.15686274509803921" blue="0.2627450980392157" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -105,9 +105,12 @@
                             <constraint firstItem="Pql-Eg-OaW" firstAttribute="trailing" secondItem="ywH-oL-6Wi" secondAttribute="trailing" constant="20" id="2YU-MO-h5V"/>
                             <constraint firstItem="PJd-gl-Vr9" firstAttribute="bottom" secondItem="Pql-Eg-OaW" secondAttribute="bottom" id="41z-SS-emo"/>
                             <constraint firstItem="Pql-Eg-OaW" firstAttribute="trailing" secondItem="cEj-Io-JGV" secondAttribute="trailing" constant="20" id="6SE-RT-hC1"/>
+                            <constraint firstItem="VIz-Vf-yo8" firstAttribute="top" secondItem="ywH-oL-6Wi" secondAttribute="bottom" constant="8" id="Bxj-IN-lIa"/>
                             <constraint firstItem="cEj-Io-JGV" firstAttribute="leading" secondItem="Pql-Eg-OaW" secondAttribute="leading" constant="20" id="Ljt-3D-gJI"/>
                             <constraint firstItem="ywH-oL-6Wi" firstAttribute="leading" secondItem="Pql-Eg-OaW" secondAttribute="leading" constant="20" id="eC5-6A-QUU"/>
                             <constraint firstItem="cEj-Io-JGV" firstAttribute="top" secondItem="Pql-Eg-OaW" secondAttribute="top" id="hUv-bH-6Ic"/>
+                            <constraint firstItem="VIz-Vf-yo8" firstAttribute="trailing" secondItem="ywH-oL-6Wi" secondAttribute="trailing" id="jfw-kJ-TQm"/>
+                            <constraint firstItem="VIz-Vf-yo8" firstAttribute="leading" secondItem="ywH-oL-6Wi" secondAttribute="leading" id="sEG-UJ-Zm4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Pql-Eg-OaW"/>
                     </view>
@@ -115,117 +118,19 @@
                         <barButtonItem key="rightBarButtonItem" image="info.circle.fill" catalog="system" landscapeImage="info.circle.fill" largeContentSizeImage="info.circle.fill" id="r0C-rN-zzo">
                             <color key="tintColor" red="0.73725490199999999" green="0.50196078430000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="3YR-QR-7rV" kind="show" identifier="showAbout" id="Rpd-7m-jnl"/>
+                                <action selector="displayAboutInfo:" destination="bIA-dd-gK9" id="zhw-E3-RRZ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="ywH-oL-6Wi" id="dvp-F1-J1j"/>
+                        <outlet property="generationLabel" destination="cEj-Io-JGV" id="Pht-5U-Yar"/>
+                        <outlet property="segmentControl" destination="VIz-Vf-yo8" id="DId-3c-Q6i"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Xy-uc-sxq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="986.95652173913049" y="171.42857142857142"/>
-        </scene>
-        <!--About-->
-        <scene sceneID="EUC-6t-nCi">
-            <objects>
-                <viewController id="3YR-QR-7rV" customClass="AboutViewController" customModule="Game_Of_LIfe" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Eyo-Xm-uoh">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f6e-zC-MFr">
-                                <rect key="frame" x="20" y="148" width="374" height="180"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rules" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dBn-Es-Zn3">
-                                        <rect key="frame" x="8" y="8" width="358" height="33.5"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="•If the cell is alive and has 2 or 3 neighbors, then it remains alive." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H2q-Aq-tad">
-                                        <rect key="frame" x="8" y="49.5" width="358" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="49e-p7-d49"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="•If the cell is dead and has 3 neighbors, then it comes to life." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m0D-bZ-aAb">
-                                        <rect key="frame" x="8" y="107.5" width="358" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="W0p-Yv-1w7"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="0.61568627450980395" green="0.58823529411764708" blue="0.72156862745098038" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstItem="m0D-bZ-aAb" firstAttribute="top" secondItem="H2q-Aq-tad" secondAttribute="bottom" constant="8" id="6xf-Vi-vjm"/>
-                                    <constraint firstItem="dBn-Es-Zn3" firstAttribute="leading" secondItem="f6e-zC-MFr" secondAttribute="leading" constant="8" id="Ojg-4K-5fN"/>
-                                    <constraint firstItem="dBn-Es-Zn3" firstAttribute="top" secondItem="f6e-zC-MFr" secondAttribute="top" constant="8" id="Q4E-mF-wH5"/>
-                                    <constraint firstAttribute="trailing" secondItem="H2q-Aq-tad" secondAttribute="trailing" constant="8" id="Wxv-kS-F3K"/>
-                                    <constraint firstItem="m0D-bZ-aAb" firstAttribute="leading" secondItem="f6e-zC-MFr" secondAttribute="leading" constant="8" id="Yt9-Ge-7OJ"/>
-                                    <constraint firstAttribute="trailing" secondItem="m0D-bZ-aAb" secondAttribute="trailing" constant="8" id="kkE-iV-Lzf"/>
-                                    <constraint firstItem="H2q-Aq-tad" firstAttribute="leading" secondItem="f6e-zC-MFr" secondAttribute="leading" constant="8" id="qQV-f8-m8T"/>
-                                    <constraint firstItem="H2q-Aq-tad" firstAttribute="top" secondItem="dBn-Es-Zn3" secondAttribute="bottom" constant="8" id="rJd-wX-wJ1"/>
-                                    <constraint firstAttribute="trailing" secondItem="dBn-Es-Zn3" secondAttribute="trailing" constant="8" id="tRp-Kx-5Vc"/>
-                                    <constraint firstAttribute="height" constant="180" id="yXX-Ei-pzA"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7bi-ED-Nto">
-                                <rect key="frame" x="20" y="344" width="374" height="460"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cellular Automata" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WkK-oW-8W7">
-                                        <rect key="frame" x="8" y="8" width="358" height="34"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Du-Mm-Nxu">
-                                        <rect key="frame" x="8" y="50" width="358" height="394.5"/>
-                                        <string key="text">This is a program that operates on data typically stored in a 2D grid.
-A simple set of rules describes how the value in a cell on the grid changes over time, often as the result of the states of that cell's neighbors. 
-Each round of the simulation examines the current state of the grid, and then produces an entirely new grid consisting of the old state.
-This new grid becomes the "current" state of the simulation, and the process repeats. Each new grid is referred to as a generation.
-Practically speaking, CAs have been used in biological and chemical simulations and other areas of research, such as CA-based computer processors, and other numeric techniques.</string>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="0.61568627450980395" green="0.58823529411764708" blue="0.72156862745098038" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="460" id="11F-1g-kAe"/>
-                                    <constraint firstAttribute="trailing" secondItem="WkK-oW-8W7" secondAttribute="trailing" constant="8" id="1cN-zt-soe"/>
-                                    <constraint firstAttribute="trailing" secondItem="0Du-Mm-Nxu" secondAttribute="trailing" constant="8" id="2tL-Sa-F3y"/>
-                                    <constraint firstItem="0Du-Mm-Nxu" firstAttribute="leading" secondItem="7bi-ED-Nto" secondAttribute="leading" constant="8" id="6rK-fT-0Vq"/>
-                                    <constraint firstItem="WkK-oW-8W7" firstAttribute="leading" secondItem="7bi-ED-Nto" secondAttribute="leading" constant="8" id="A3H-Bq-zHt"/>
-                                    <constraint firstItem="WkK-oW-8W7" firstAttribute="top" secondItem="7bi-ED-Nto" secondAttribute="top" constant="8" id="Dvp-77-f7H"/>
-                                    <constraint firstItem="0Du-Mm-Nxu" firstAttribute="top" secondItem="WkK-oW-8W7" secondAttribute="bottom" constant="8" id="DzW-Bx-OMP"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" red="0.13333333333333333" green="0.15686274509803921" blue="0.2627450980392157" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="7bi-ED-Nto" firstAttribute="leading" secondItem="tTP-Ce-z4z" secondAttribute="leading" constant="20" id="2ba-bL-qSK"/>
-                            <constraint firstItem="f6e-zC-MFr" firstAttribute="top" secondItem="tTP-Ce-z4z" secondAttribute="top" constant="8" id="KYf-8f-QgR"/>
-                            <constraint firstItem="tTP-Ce-z4z" firstAttribute="trailing" secondItem="7bi-ED-Nto" secondAttribute="trailing" constant="20" id="Oe5-Dj-GvN"/>
-                            <constraint firstItem="f6e-zC-MFr" firstAttribute="leading" secondItem="tTP-Ce-z4z" secondAttribute="leading" constant="20" id="b3D-SA-931"/>
-                            <constraint firstItem="tTP-Ce-z4z" firstAttribute="trailing" secondItem="f6e-zC-MFr" secondAttribute="trailing" constant="20" id="ea1-Ru-66K"/>
-                            <constraint firstItem="7bi-ED-Nto" firstAttribute="top" secondItem="f6e-zC-MFr" secondAttribute="bottom" constant="16" id="xiu-zQ-QDG"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="tTP-Ce-z4z"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="About" id="NkT-Wt-6mO"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jZL-du-DdC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1969.5652173913045" y="170.75892857142856"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ctS-gn-Zi4">
@@ -253,8 +158,6 @@ Practically speaking, CAs have been used in biological and chemical simulations 
     </scenes>
     <color key="tintColor" red="0.73725490196078436" green="0.50196078431372548" blue="1" alpha="1" colorSpace="calibratedRGB"/>
     <resources>
-        <image name="backward.fill" catalog="system" width="128" height="79"/>
-        <image name="forward.fill" catalog="system" width="128" height="79"/>
         <image name="info.circle.fill" catalog="system" width="128" height="121"/>
         <image name="pause.fill" catalog="system" width="116" height="128"/>
         <image name="play.fill" catalog="system" width="116" height="128"/>

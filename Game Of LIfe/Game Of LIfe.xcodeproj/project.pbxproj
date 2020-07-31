@@ -21,6 +21,7 @@
 		80BDF68A24D23C8A00B38390 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BDF68924D23C8A00B38390 /* GameViewController.swift */; };
 		80BDF68C24D23CA600B38390 /* SquareCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BDF68B24D23CA600B38390 /* SquareCollectionViewCell.swift */; };
 		80BDF68E24D2409900B38390 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BDF68D24D2409900B38390 /* AboutViewController.swift */; };
+		80BDF6D624D3742000B38390 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BDF6D524D3742000B38390 /* Notification.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		80BDF68924D23C8A00B38390 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		80BDF68B24D23CA600B38390 /* SquareCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareCollectionViewCell.swift; sourceTree = "<group>"; };
 		80BDF68D24D2409900B38390 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		80BDF6D524D3742000B38390 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 				80BDF68924D23C8A00B38390 /* GameViewController.swift */,
 				80BDF68B24D23CA600B38390 /* SquareCollectionViewCell.swift */,
 				80BDF68D24D2409900B38390 /* AboutViewController.swift */,
+				80BDF6D524D3742000B38390 /* Notification.swift */,
 			);
 			path = "Game Of LIfe";
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 				80BDF68E24D2409900B38390 /* AboutViewController.swift in Sources */,
 				80BDF68C24D23CA600B38390 /* SquareCollectionViewCell.swift in Sources */,
 				80BDF68624D2090000B38390 /* StyleGuide.swift in Sources */,
+				80BDF6D624D3742000B38390 /* Notification.swift in Sources */,
 				80BDF68A24D23C8A00B38390 /* GameViewController.swift in Sources */,
 				809F425924D0CAB800C21960 /* SceneDelegate.swift in Sources */,
 				809F428724D0D19600C21960 /* CellModel.swift in Sources */,

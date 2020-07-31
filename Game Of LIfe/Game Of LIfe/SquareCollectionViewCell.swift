@@ -17,5 +17,4 @@ class SquareCollectionViewCell: UICollectionViewCell {
     
     func configureWithState(_ isAlive: Bool) {
         contentView.backgroundColor = isAlive ? UIColor.mountbattenPink : UIColor.mauveTaupe
-    }
-}
+    }}

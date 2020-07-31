@@ -6,7 +6,7 @@
 //  Copyright © 2020 Jesse Ruiz. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 typealias GameStateObserver = ((GameState) -> Void)?
 
@@ -14,7 +14,13 @@ class Game {
     let width: Int
     let height: Int
     var currentState: GameState
-    var generation: Int = 0
+    var generation: Int = 0 {
+        didSet {
+            NotificationCenter.default.post(name: .generationChanged, object: self)
+        }
+    }
+    var timer: Timer?
+    var timerInterval: Double = 1.0
     
     init(width: Int, height: Int) {
         self.width = width
@@ -25,17 +31,28 @@ class Game {
     
     func addStateObserver(_ observer: GameStateObserver) {
         observer?(generateInitialState())
-        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+    }
+    
+    func reset(_ observer: GameStateObserver) {
+        observer?(generateInitialState())
+        generation = 0
+    }
+    
+    func stop(_ observer: GameStateObserver) {
+        timer?.invalidate()
+        timer = nil
+    }
+    
+    func play(_ observer: GameStateObserver) {
+        timer = Timer.scheduledTimer(withTimeInterval: timerInterval, repeats: true) { _ in
             observer?(self.iterate())
+            self.generation += 1
         }
     }
     
-    func setInitialState(_ state: GameState) {
-        currentState = state
-    }
-    
-    func reset() {
-        self.generateInitialState()
+    func clear(_ observer: GameStateObserver) {
+        observer?(generateEmpyState())
+        generation = 0
     }
     
     @discardableResult func generateInitialState() -> GameState {
@@ -54,6 +71,16 @@ class Game {
         }
     }
     
+    func generateEmpyState() -> GameState {
+        let maxItems  = width*height - 1
+        let initialStatePoints = Range(0...maxItems)
+        
+        for point in initialStatePoints {
+            currentState[point] = Cell.makeDeadCell()
+        }
+        return self.currentState
+    }
+    
     func iterate() -> GameState {
         var nextState = currentState
         for i in 0...width - 1 {
@@ -63,7 +90,6 @@ class Game {
             }
         }
         self.currentState = nextState
-        generation += 1
         return nextState
     }
     
